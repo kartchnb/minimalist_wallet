@@ -35,7 +35,7 @@ Front_Cover_Inscription_Length_Factor = 60; // [0: 10: 200]
 
 /* [Model Generation Parameters] */
 // The model to generate
-Model_To_Generate = "all"; // ["all", "front cover", "rear cover", "pocket insert", "clip"]
+Model_To_Generate = "all"; // ["all", "front cover", "rear cover", "pocket insert", "money clip"]
 
 // Generate reference models for external hardware?
 Generate_External_Reference_Hardware = true;
@@ -119,9 +119,12 @@ module Generate()
     front_cover_z_offset = Model_To_Generate == "all"
         ? pocket_z_offset + PocketInsert_Thickness + Mate_Spacing + (Generate_External_Reference_Hardware ? CreditCard_Thickness + Mate_Spacing : 0)
         : 0;
-    clip_z_offset = Model_To_Generate == "all"
+    money_clip_z_offset = Model_To_Generate == "all"
         ? -MoneyClip_Thickness - Mate_Spacing + Cover_Thickness
         : 0;
+    money_clip_y_rotation = Model_To_Generate == "all"
+        ? 0
+        : 90;
 
     if (Model_To_Generate == "all" || Model_To_Generate == "front cover")
     {
@@ -158,9 +161,10 @@ module Generate()
         }
     }
     
-    if (Model_To_Generate == "all" || Model_To_Generate == "clip")
+    if (Model_To_Generate == "all" || Model_To_Generate == "money clip")
     {
-        translate([0, 0, clip_z_offset])
+        translate([0, 0, money_clip_z_offset])
+        rotate([0, money_clip_y_rotation, 0])
         {
             color("Green")
                 MoneyClip_Generate();
