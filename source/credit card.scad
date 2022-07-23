@@ -30,5 +30,5 @@ module CreditCard_Generate()
     thickness = CreditCard_Thickness;
 
     linear_extrude(thickness)
-    CreditCard_GenerateOutline;
+        CreditCard_GenerateOutline();
 }

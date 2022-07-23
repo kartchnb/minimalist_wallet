@@ -25,8 +25,11 @@ Front_Cover_Inscription_File = "";
 // This option cuts the inscription completely through the cover (otherwise, it just cuts halfway)
 Front_Cover_Inscription_Full_Thickness = false;
 
-// This option causes the inscription to be stretched to fit the width of the cover rather than the length
-Front_Cover_Inscription_Fit_to_Width = false;
+// This setting tweaks the width of the inscription
+Front_Cover_Inscription_Width_Factor = 0; // [0: 10: 200]
+
+// This setting tweaks the height of the inscription
+Front_Cover_Inscription_Length_Factor = 60; // [0: 10: 200]
 
 
 

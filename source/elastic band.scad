@@ -13,9 +13,9 @@ module ElasticBand_Generate(wallet_thickness)
     bottom_z_offset = 0;
     top_z_offset = bottom_z_offset + wallet_thickness;
 
-    clip_edge_x_offset = MoneyClipLength/2 + Mate_Spacing;
-    clip_top_y_offset = MoneyClipWidth/2 - Mate_Spacing;
-    clip_inside_z_offset = -MoneyClipThickness/2 + Mate_Spacing + Cover_Thickness;
+    clip_edge_x_offset = MoneyClip_Length/2 + Mate_Spacing;
+    clip_top_y_offset = MoneyClip_Width/2 - Mate_Spacing;
+    clip_inside_z_offset = -MoneyClip_Thickness/2 + Mate_Spacing + Cover_Thickness;
 
     points =
     [

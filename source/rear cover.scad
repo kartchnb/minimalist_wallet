@@ -7,8 +7,8 @@ module RearCover_Generate()
 {
     module Generate_ClipCutout()
     {
-        cutout_width = Money_Clip_Length + Slide_Spacing*2;
-        cutout_length = Money_Clip_Width + Slide_Spacing*2;
+        cutout_width = MoneyClip_Length + Slide_Spacing*2;
+        cutout_length = MoneyClip_Width + Slide_Spacing*2;
         cutout_depth = Cover_Thickness + Iota*2;
 
         x_offset = -cutout_width/2;

@@ -1,3 +1,4 @@
+include<credit card.scad>
 include<cover.scad>
 
 
@@ -9,7 +10,7 @@ module FrontCover_Generate()
         translate([0, 0, Cover_Thickness - inscription_depth + Iota])
         linear_extrude(inscription_depth)
         resize(inscription_resize, auto=true)
-            import(Front_Cover_Inscription_File);
+            text(Front_Cover_Inscription_Text, Front_Cover_Inscription_Font, valign="center", halign="center");
     }
 
 
@@ -19,19 +20,21 @@ module FrontCover_Generate()
         translate([0, 0, Cover_Thickness - inscription_depth + Iota])
         linear_extrude(inscription_depth)
         resize(inscription_resize, auto=true)
-            text(Front_Cover_Inscription_Font, Front_Cover_Inscription_Text, valign="center", halign="center");
+            import(Front_Cover_Inscription_File);
     }
 
 
 
-    inscription_max_width = Cover_Width - Wall_Thickness*2;
-    inscription_max_length = Cover_Length * Groove_Inset_Factor*2 - Cover_Thickness*2;
-    inscription_resize = Front_Cover_Inscription_Fit_to_Width
-        ? [inscription_max_width, 0]
-        : [0, inscription_max_length];
+    inscription_max_width = CreditCard_Width - Cover_Thickness*2;
+    
+    inscription_max_length = Cover_Length - Cover_Channel_Inset - Cover_Thickness*2;
+    
+    inscription_resize = 
+        [inscription_max_width * Front_Cover_Inscription_Width_Factor/100, inscription_max_length * Front_Cover_Inscription_Length_Factor/100];
+    
     inscription_depth = Front_Cover_Inscription_Full_Thickness 
         ? Cover_Thickness + Iota*2
-        : Cover_Thickness + Iota;
+        : Cover_Thickness/2 + Iota;
 
 
 

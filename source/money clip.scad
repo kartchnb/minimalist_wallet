@@ -4,7 +4,7 @@ include<cover.scad>
 
 MoneyClip_Thickness = Pocket_Insert_Wall_Thickness + Slide_Spacing + Elastic_Band_Diameter + Slide_Spacing + Pocket_Insert_Wall_Thickness;
 
-MoneyClip_Width = (Cover_Length * Groove_Inset_Factor*2 - Pocket_Insert_Wall_Thickness*2) * MoneyClip_Width_Factor;
+MoneyClip_Width = (Cover_Channel_Inset*2 - Pocket_Insert_Wall_Thickness*2) * MoneyClip_Width_Factor;
 
 
 
@@ -12,7 +12,7 @@ module MoneyClip_Generate()
 {
     module Generate_Outline()
     {
-        y_offset = MoneyClip_Width()/2  - outer_diameter/2;
+        y_offset = MoneyClip_Width/2  - outer_diameter/2;
 
         difference()
         {
@@ -47,7 +47,7 @@ module MoneyClip_Generate()
 
 
 
-    outer_diameter = MoneyClip_Thickness();
+    outer_diameter = MoneyClip_Thickness;
     inner_diameter = outer_diameter - Pocket_Insert_Wall_Thickness*2;
     length = MoneyClip_Length;
 
