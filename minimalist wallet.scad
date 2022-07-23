@@ -20,10 +20,10 @@ Front_Cover_Inscription_Font = "FreeSans:style=Bold";
 Front_Cover_Inscription_Text = "";
 
 // The name of an SVG file to use to inscribe the front cover (leave blank for none)
-Front_Cover_Inscription_File = "";
+Front_Cover_Inscription_File = "images/viper.svg";
 
 // This option cuts the inscription completely through the cover (otherwise, it just cuts halfway)
-Front_Cover_Inscription_Full_Thickness = false;
+Front_Cover_Inscription_Full_Thickness = true;
 
 // This setting tweaks the width of the inscription
 Front_Cover_Inscription_Width_Factor = 0; // [0: 10: 200]
